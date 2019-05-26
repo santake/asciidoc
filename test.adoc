@@ -1,0 +1,48 @@
+= これはテスト
+
+テストの第1章です．
+改行はここでは聞かない．
+あああ +
+プラス(+)をスペースprefixで付与することで強制改行となる．
+
+*Bold* +
+_italic_ +
+`monospace` +
+[red]#文字に色つける# とこうなる +
+[underline]#Underlinde# はこうなる +
+
+//コメントはこれ
+
+* level 1
+** level 2
+*** level 3 
+
+// --
+
+. Step 1
+. Step 2
+.. Step 2a
+
+// --
+
+CPU:: Central Processing Unit
+RAM:: Random Access Memories (Daft Punkも)
+
+.テーブルタイトル
+[options="header"]
+|=======================
+|Col 1  |Col 2      |Col 3
+|1      |Item 1     |a
+|2      |Item 2     |b
+|3      |Item 3     |c 
+|=======================
+
+
+
+
+
+// --
+
+
+
+image::http://placehold.it/350x150[代替テキスト]
