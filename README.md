@@ -19,6 +19,10 @@ for Chrome and Firefox
 Chrome用が正しく動いてない????
 FirefoxはOK
 
+## Github
+GithubがasciidocのPreviewに対応しているという皮肉．
+
+
 
 
 # Reference etc
