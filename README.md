@@ -2,14 +2,22 @@
 
 markdownとの違いとか確認したいので動作確認用ページ
 
+## 拡張子
+.ad, .adoc, .asc, .asciidoc
+
+
 # Plugin etc
 
 ## for VSCode
 Asciidocで検索すると
 「joaompinto.asciidoctor-vscode」
 
-## for Firefox
-Asciidoctor.js Live Preview
+## Asciidoctor.js Live Preview
+for Chrome and Firefox
+(No plugins for Safari ??)
+
+Chrome用が正しく動いてない????
+FirefoxはOK
 
 
 
