@@ -1,10 +1,11 @@
-= Sample of Asciidoc File
-//Takeshi Sannomiya <t-sannomiya@katachistudio.co.jp>
-//v1.0.0, 2019, MAY 26
+= Basic Syntax of Asciidoc File
+// Takeshi S <t-sannomiya@katachistudio.co.jp>
+// v1.0.0, 2019, MAY 26
 :Author:    Takeshi.S
 :Email: t-sannomiya@katachistudio.co.jp
 :Date:  2019-05-26
 :Revision:  1.0.0
+// they are for Table Of Contents:
 :toc:
 :toclevels: 5
 :sectnums:
@@ -25,6 +26,7 @@ You have to add `:toc:` to display TOC at the top of the document. (`:toc:` is f
 あああ +
 プラス(+)をスペースprefixで付与することで強制改行となる．
 
+なお章の参照などについては<<cross-ref>>を確認のこと．
 
 
 
@@ -56,23 +58,34 @@ _italic_ +
 
 === Image file:
 
-.外部URL
+注意： ブロック表示の場合はコロン2つ，インライン表示の場合はコロン1つという
+違いがある．
+
+==== ブロック表示 
+
+.外部URL(1)
 image::http://placehold.it/350x150[alt文字]
 
-.相対パス画像(内部)
+.外部URL(2)
+image::https://www.dike.lib.ia.us/images/sample-1.jpg[Ballon]
+
+.相対パス画像
 image::img/b.jpg[気球です]
 
-これダメ：インラインの場合はこんな image::http://placehold.it/350x150[alt文字] になる．
 
-これは? インラインの場合はこんな image::img/b.jpg[プレイ] になる．
+==== Inline表示
+
+インラインの場合はコロンが一つ．こんな image:http://placehold.it/350x150[alt文字] 風になる． +
+また相対パスでの画像ファイル参照インラインはこんな image:img/b.jpg[プレイ] になる．
 
 
-image::https://www.dike.lib.ia.us/images/sample-1.jpg[Ballon]
+==== 画像にリンクを付与する場合ちょっと面倒：
 
 .Flying dutchman
 [#img-sunset]
 [caption="Figure 1: ",link=https://www.google.com]
-image::https://www.dike.lib.ia.us/images/sample-1.jpg[Sunset,300,200]
+image::https://www.dike.lib.ia.us/images/sample-1.jpg[気球,300,200]
+
 
 
 === URL Link:
@@ -188,9 +201,96 @@ public static void main(String... args) { //<1>
 <3> end of the method
 
 
+==== Escape special characters
+タグなどをエスケープさせる場合は，プラス(+)を3つ連続させて囲む．
+
+例：参照リンクの場合「+++<<xxx>>+++」など
+
+
+
+
 == Special chars
 Copyright: (C) +
 Registered: (R) +
 Trademark: (TM) +
 Single Arrow: <- and -> +
 Double Arrow: <= and => +
+
+
+
+
+[[cross-ref]]
+
+== Cross Reference機能について
+
+=== 参照元
+* 任意の箇所に+++[[xxx]]+++というタグを用意することで参照元を用意できる．
+* Section(節)の場合は3種類の方法がある
+  ** 節の名前を自動変換したIDを利用する (ただし英数字の文字列のみの場合；日本語はこれ動かない)
+  ** 節の名前をそのままタグとする(日英ともOK)
+  ** 独自のタグとする(最初の方法と同じ)
+
+基本的には，section titleにはIDが自動付与されるらしい．例えば，
+----
+== Section Title 
+----
+というセクションがあるとすれば，このIDは「*_section_title*」となる．
+
+
+=== 参照先
+参照先を作る場合は+++<<+++と+++>>+++で囲むタグを用意し，間に参照元のIDを入れる．
+
+例えば上記「section title」を参照する場合は，+++<<+++と +++>>+++で囲む． +
+例：<<_section_title>>
+
+ただしSection名をそのままタグで参照させることも可能な模様． +
+
+例1：<<Cross Reference機能について>>
+
+例2：<<Paragraph>>
+
+
+だとどうなるか不明なので，自分でAnchorを付与するほうがいいかもしれない．
+
+先に宣言してある章「Paragraph」は，+++<<_paragraph>>+++と参照される．+
+
+
+
+
+=== Anchorの付与
+Anchorは +++[[xxxx]]+++ もしくは +++[#xxxx]+++ という記法．
+これを使って，Sectionに手動でIDを付与する．
+
+----
+[[section_1_ref]]
+== ニホンゴのタイトル 
+----
+という風にしておく．
+
+=== Anchorへのリンク(参照を作る)
+
+Anchorを他から参照する場合は，
+----
+なお章の参照などについては<<section_1_ref>>を確認のこと．
+----
+などという風に `<<xxx>>` で記載する
+こうしておくと章名が表示されて参照できるようになる．
+
+
+
+
+#### FIXME
+
+なお，インラインの場合，以下のようにIDを付与すると
+----
+けふのうちにとほくへいつてしまふ[[bookmark-imouto]]わたくしのいもうとよ
+みぞれがふつておもてはへんにあかるいのだ
+----
+
+
+けふのうちにとほくへいつてしまふ[[bookmark-imouto]]わたくしのいもうとよ
+みぞれがふつておもてはへんにあかるいのだ
+
+
+
+このように<<bookmark-imouto>>

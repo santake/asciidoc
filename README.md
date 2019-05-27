@@ -7,6 +7,11 @@ syntax等についてtest.adocを参照．
 .ad, .adoc, .asc, .asciidoc
 (adocが一般的ぽい)
 
+## Reference etc
+このへんか
+https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+
+
 
 # Plugin etc
 
@@ -38,6 +43,39 @@ GithubがasciidocのPreviewに対応しているというirony．
 
 
 
-# Reference etc
-このへんか
-https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+# Install asciidoctor
+https://asciidoctor.org/docs/install-asciidoctor-macos/
+
+```
+$ brew install asciidoctor
+```
+
+# Install Pandoc
+Pandoc: https://pandoc.org
+```
+$ brew install pandoc
+```
+
+
+
+## Convert Word file to asciidoc file
+```
+$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=extracted-media input.docx > output.adoc
+```
+
+mediaファイルがtiffになってる
+ので，これらをpngに変更して，adocファイルの
+拡張子も.tiffから.pngに変更しておくとpreviewで
+画像も表示できるようになる．
+
+
+## adocファイルの分割
+chapter毎にsplitする
+
+
+
+
+
+
+
+
