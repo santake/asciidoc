@@ -55,14 +55,15 @@ _italic_ +
 === Image file:
 image::http://placehold.it/350x150[alt文字]
 
-インラインの場合はこんな image::img/play.png[title="実行"] になる．
+インラインの場合はこんな image::http://placehold.it/350x150[alt文字] になる．
 
-image::https://www.dike.lib.ia.us/images/sample-1.jpg/image_view_fullscreen[Ballon]
 
-.A mountain sunset
+image::https://www.dike.lib.ia.us/images/sample-1.jpg[Ballon]
+
+.Flying dutchman 
 [#img-sunset]
-[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
-image::https://www.flickr.com/photos/javh/544833665[Sunset,300,200]
+[caption="Figure 1: ",link=https://www.google.com]
+image::https://www.dike.lib.ia.us/images/sample-1.jpg[Sunset,300,200]
 
 
 === URL Link:
