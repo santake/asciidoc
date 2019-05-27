@@ -4,8 +4,10 @@
 :Author:    Takeshi.S
 :Email: t-sannomiya@katachistudio.co.jp
 :Date:  2019-05-26
-:Revision:  1.0.0 
-:toc: right // preamble //left or right
+:Revision:  1.0.0
+:toc: left
+:toclevels: 5
+:sectnums:
 
 
 == About document header
@@ -53,14 +55,21 @@ _italic_ +
 
 
 === Image file:
+
+.外部URL
 image::http://placehold.it/350x150[alt文字]
 
-インラインの場合はこんな image::http://placehold.it/350x150[alt文字] になる．
+.相対パス画像(内部)
+image::img/b.jpg[気球です]
+
+これダメ：インラインの場合はこんな image::http://placehold.it/350x150[alt文字] になる．
+
+これは? インラインの場合はこんな image::img/b.jpg[プレイ] になる．
 
 
 image::https://www.dike.lib.ia.us/images/sample-1.jpg[Ballon]
 
-.Flying dutchman 
+.Flying dutchman
 [#img-sunset]
 [caption="Figure 1: ",link=https://www.google.com]
 image::https://www.dike.lib.ia.us/images/sample-1.jpg[Sunset,300,200]
@@ -80,7 +89,7 @@ https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
 === un-nunmbered
 * level 1
 ** level 2
-*** level 3 
+*** level 3
 
 === numbered
 . Step 1
@@ -101,7 +110,7 @@ RAM:: Random Access Memories (Daft Punkも)
 |Col 1  |Col 2      |Col 3
 |1      |Item 1     |a
 |2      |Item 2     |b
-|3      |Item 3     |c 
+|3      |Item 3     |c
 |=======================
 
 
@@ -182,3 +191,11 @@ public static void main(String... args) { //<1>
 
 
 
+
+
+== Special chars
+Copyright: (C) +
+Registered: (R) +
+Trademark: (TM) +
+Single Arrow: <- and -> +
+Double Arrow: <= and => +

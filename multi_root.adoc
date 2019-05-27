@@ -1,0 +1,15 @@
+= Test of multiple files
+:Author:    Takeshi.S
+:Email: t-sannomiya@katachistudio.co.jp
+:Date:  2019-05-26
+:Revision:  1.0.0
+:toc: preamble
+:toclevels: 4
+:sectnums:
+
+
+include::multi_chap01.adoc[]
+
+include::multi_chap02.adoc[]
+
+include::multi_chap03.adoc[]
