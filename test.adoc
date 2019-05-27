@@ -1,32 +1,98 @@
-= これはテスト
+= Sample of Asciidoc File
+//Takeshi Sannomiya <t-sannomiya@katachistudio.co.jp>
+//v1.0.0, 2019, MAY 26
+:Author:    Takeshi.S
+:Email: t-sannomiya@katachistudio.co.jp
+:Date:  2019-05-26
+:Revision:  1.0.0 
+:toc: right // preamble //left or right
+
+
+== About document header
+You have to add `:toc:` to display TOC at the top of the document. (`:toc:` is for 'Table of contents'.)
+
+*preamble* will position the toc in the main content area (some as default) but before the preable.
+
+
+
+
+== Paragraph
 
 テストの第1章です．
 改行はここでは聞かない．
 あああ +
 プラス(+)をスペースprefixで付与することで強制改行となる．
 
+
+
+
+== Section Header/Titles
+= = Document Header
+== == Section (level1)
+=== === Section (level2)
+==== ==== Section (level3)
+===== ===== Section (level4)
+====== ====== Section (level5)
+(* no section level6)
+
+
+
+== Text format
 *Bold* +
 _italic_ +
+*_Bold italic_* +
 `monospace` +
+`*monospace bold*` +
+`_monospace italic_` +
+`*_monospace bold italic_*` +
 [red]#文字に色つける# とこうなる +
 [underline]#Underlinde# はこうなる +
 
+
 //コメントはこれ
 
+
+=== Image file:
+image::http://placehold.it/350x150[alt文字]
+
+インラインの場合はこんな image::img/play.png[title="実行"] になる．
+
+image::https://www.dike.lib.ia.us/images/sample-1.jpg/image_view_fullscreen[Ballon]
+
+.A mountain sunset
+[#img-sunset]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
+image::https://www.flickr.com/photos/javh/544833665[Sunset,300,200]
+
+
+=== URL Link:
+基本的に自動的． +
+https://asciidoctor.org ....こんな感じで．
+
+ラベルつける場合 +
+https://asciidoctor.org[Asciidoctor] +
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+
+
+== Lists
+
+=== un-nunmbered
 * level 1
 ** level 2
 *** level 3 
 
-// --
-
+=== numbered
 . Step 1
 . Step 2
 .. Step 2a
+... Step 2ai
 
-// --
-
+==== another list type:
 CPU:: Central Processing Unit
 RAM:: Random Access Memories (Daft Punkも)
+
+
+== Tables
 
 .テーブルタイトル
 [options="header"]
@@ -38,11 +104,80 @@ RAM:: Random Access Memories (Daft Punkも)
 |=======================
 
 
+== Block quote的なブロック
+このブロックを利用する場合，以下の注意がある：
+
+* ソースコードは Hyphen (-) or Dot (.) 4回
+* 通常ブロックは Asterisk (*) 4回
+* 「例 example」とするブロックは Equal (=) 4回
+
+
+.Block with Asterisk (*)
+****
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの．
+****
+
+
+.Block with Equal(=)
+====
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの．
+====
+
+.another block with equal(=)
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= Title of Document
+Doc Writer
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+
+====
 
 
 
 // --
 
+== Source code
+
+=== inline
+クラス「`java.lang.String`」を使用する．
+もしくはクラス「``java.lang.Integer``」を使用する．
+
+=== Block
+
+.Hyphen(4つ)で囲む．あるいはdot(4つ)でも可能
+[source, java]
+----
+public static void main(String... args) {
+    System.out.println("Hanage");
+}
+----
 
 
-image::http://placehold.it/350x150[代替テキスト]
+.Callout (数字の番号)を付与するには`//<x>`とする
+[source, java]
+----
+public static void main(String... args) { //<1>
+    System.out.println("Hanage");         //<2>
+}                                         //<3>
+----
+<1> method signature
+<2> contents
+<3> end of the method
+
+
+
+

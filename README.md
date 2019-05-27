@@ -1,36 +1,39 @@
 # asciidoc の確認
 
-markdownとの違いとか確認したいので動作確認用ページ
+markdownとの違いとか確認したいので動作確認
+syntax等についてtest.adocを参照．
 
-## 拡張子
+### 使える拡張子
 .ad, .adoc, .asc, .asciidoc
+(adocが一般的ぽい)
 
 
 # Plugin etc
 
-## for VSCode
-Asciidocで検索すると
-「joaompinto.asciidoctor-vscode」
+## for Atom 
+Atom + Asciidoctorという組み合わせが有名らしいが，Atomが重すぎてあかん．
+https://atom.io/users/asciidoctor
+
+
+## for VS Code
+AsciiDoc: joaompinto.asciidoctor-vscode  (ver.2.7.4 for now)
+※ 同じ名称でdepcrecatedのextensionもあるので注意のこと．
+
 
 ## Asciidoctor.js Live Preview
 for Chrome and Firefox
-(No plugins for Safari ??)
+※ Chrome用が正しく動いてない????
+※ FirefoxはOK
+※ Safari用はみあたらず
 
-Chrome用が正しく動いてない????
-FirefoxはOK
-
-## Github
-GithubがasciidocのPreviewに対応しているという皮肉．
-
+## Github Preview
+GithubがasciidocのPreviewに対応しているというirony．
 
 
 
 # Reference etc
-このへんかな
-
-https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/#_順序無しリスト
-
-https://qiita.com/xmeta/items/de667a8b8a0f982e123a
+このへんか
+https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
 
 
