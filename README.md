@@ -10,15 +10,22 @@ syntax等についてtest.adocを参照．
 
 # Plugin etc
 
-## for Atom 
-Atom + Asciidoctorという組み合わせが有名らしいが，Atomが重すぎてあかん．
-https://atom.io/users/asciidoctor
+いくつか試すと，VSCodeのPreview機能と，Asciidoctor.js Live Previewの
+見えかたが異なる場合がある．またそれぞれ若干表示機能がpoorだったりする．
 
+例： includeの機能(他adocファイルを取り込む)が，Asciidoctor.js live Previewだと
+ハイパーリンクになってしまう．一方VSCodeのPreviewではちゃんとインクルードされる．
+
+安定感のあるのはAtom + Asciidoctor plugins (複数個ある) かもしれない．
+
+
+## for Atom
+Atom + Asciidoctorという組み合わせが有名らしいが，Atomが重い．
+https://atom.io/users/asciidoctor
 
 ## for VS Code
 AsciiDoc: joaompinto.asciidoctor-vscode  (ver.2.7.4 for now)
 ※ 同じ名称でdepcrecatedのextensionもあるので注意のこと．
-
 
 ## Asciidoctor.js Live Preview
 for Chrome and Firefox
@@ -34,9 +41,3 @@ GithubがasciidocのPreviewに対応しているというirony．
 # Reference etc
 このへんか
 https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-
-
-
-
-
-

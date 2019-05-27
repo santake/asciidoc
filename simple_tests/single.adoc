@@ -5,7 +5,7 @@
 :Email: t-sannomiya@katachistudio.co.jp
 :Date:  2019-05-26
 :Revision:  1.0.0
-:toc: left
+:toc:
 :toclevels: 5
 :sectnums:
 
@@ -157,7 +157,6 @@ The document header is useful, but not required.
 ====
 
 
-
 // --
 
 == Source code
@@ -187,10 +186,6 @@ public static void main(String... args) { //<1>
 <1> method signature
 <2> contents
 <3> end of the method
-
-
-
-
 
 
 == Special chars

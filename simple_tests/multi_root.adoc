@@ -3,7 +3,7 @@
 :Email: t-sannomiya@katachistudio.co.jp
 :Date:  2019-05-26
 :Revision:  1.0.0
-:toc: preamble
+:toc: right
 :toclevels: 4
 :sectnums:
 
