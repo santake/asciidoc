@@ -1,0 +1,15 @@
+
+
+
+=== 動作環境
+
+認証データ登録アプリケーションは、以下のOSSソフトウェアを用いて構築します。
+
+[cols=",,,",options="header",]
+|===
+|項番 |分類 |利用OSSの名称 |バージョン
+|1 |ログ出力 |Apache Log4J |2.11.0
+|2 |JDBCドライバー |PostgreSQL JDBC Driver |42.2.2
+|3 |入出力ユーティリティ |Apache Commons IO |2.6
+|4 |文字列処理ユーティリティ |Apache Commons Lang |3.7
+|===

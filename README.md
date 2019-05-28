@@ -50,7 +50,7 @@ https://asciidoctor.org/docs/install-asciidoctor-macos/
 $ brew install asciidoctor
 ```
 
-# Install Pandoc
+## Install Pandoc
 Pandoc: https://pandoc.org
 ```
 $ brew install pandoc
@@ -58,24 +58,49 @@ $ brew install pandoc
 
 
 
-## Convert Word file to asciidoc file
+## Convert Word file to asciidoc file (for test purpose)
+
 ```
-$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=extracted-media input.docx > output.adoc
+$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=media input.docx > output.adoc
 ```
 
-mediaファイルがtiffになってる
-ので，これらをpngに変更して，adocファイルの
-拡張子も.tiffから.pngに変更しておくとpreviewで
-画像も表示できるようになる．
+mediaファイルがtiffになってるので，これらをpngに変更し，
+adocファイルの拡張子も.tiffから.pngに変更しておくと，
+ツールの「preview」で画像も表示できるようになる．
 
-
-## adocファイルの分割
-chapter毎にsplitする
-
+### adocファイルの分割
+chapter毎にsplit
 
 
 
 
+## a) adocからHTMLの生成
+
+```
+$ asciidoctor -D [outputdir] INPUT.adoc --backend html5
+```
+e.g
+```
+asciidoctor -D OUTPUT/ all.adoc --backend html5
+```
+これだけだとimageへの参照が切れてしまうので，画像フォルダをコピーする：
+```
+cp -r src/media OUTPUT/.
+```
+これでHTMLとしては動作する．
 
 
+## b) adocからWORDファイル生成
+下記参考：
+https://rmoff.net/2018/08/22/converting-from-asciidoc-to-ms-word/
 
+```
+$ asciidoctor --backend docbook --out-file - [INPUT.adoc] | pandoc --from docbook --to docx --toc --standalone --output [OUTPUT.docx]
+```
+e.g.
+```
+asciidoctor --backend docbook --out-file - all.adoc | pandoc --from docbook --to docx --toc --standalone --output OUTPUT/out.docx
+```
+
+
+※ ToC (目次) が生成されない...

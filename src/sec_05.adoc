@@ -1,0 +1,18 @@
+
+
+
+=== 入力インターフェース
+
+基本設計書「3.1 入力インターフェース」の仕様に従い、起動時のパラメータをプログラムのメインメソッドに引き渡します。
+
+本アプリケーションの実行プログラムを格納するKKKLDIFConverter.jarのJARファイルマニフェストを以下のように生成し、実行時のエントリークラス(com.KKK.jp.kldap.KKKLDIFConverter)を定義します。
+
+```
+META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: developer
+Build-Jdk: 1.8.0_171
+Main-Class: com.KKK.jp.kldap.KKKLDIFConverter
+```

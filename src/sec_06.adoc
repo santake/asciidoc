@@ -1,0 +1,118 @@
+
+
+=== 出力インターフェース
+
+基本設計書「3.2 出力インターフェース」の仕様に従い、終了時のステータス、およびコンソールへの出力を行います。
+
+==== 終了ステータ(終了コード)
+
+終了コードは、正常終了時は、0。それ以外は、255とします。
+
+※更新された認証データが存在しないときは、差分LDIFファイル生成されず、終了コードは、0となります。
+
+==== 出力メッセージ
+
+コンソールへの情報出力は、`KKKLDIFConverter.jar` 実行時のクラスパス上の `log4j2.xml` で定義します。
+
+log4j2.xmlの設定を以下の通り定義します。(網掛け部分がコンソール出力に関する定義)
+
+[source, xml]
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<CustomLevels>
+<CustomLevel name="CRT" intLevel="0" />
+<CustomLevel name="MAJOR" intLevel="100" />
+<CustomLevel name="MINOR" intLevel="200" />
+</CustomLevels>
+<Appenders>
+<Console name="Console" target="SYSTEM_OUT">
+<PatternLayout
+pattern="%d\{YYYY/MM/dd HH:mm:ss.SSS},%level,%msg%n" />
+</Console>
+<RollingRandomAccessFile name="FileLog"
+fileName="logs/KKKLDIFConverter.log"
+filePattern="logs/KKKLDIFConverter-%d\{yyyyMMdd}-%i.log">
+<PatternLayout
+pattern="%d\{YYYY/MM/dd HH:mm:ss.SSS},%level,%msg%n" />
+<Policies>
+<SizeBasedTriggeringPolicy size="10 MB" />
+<TimeBasedTriggeringPolicy />
+<DefaultRolloverStrategy fileIndex="max" min="1" >
+<Delete basePath="logs" maxDepth="1">
+<IfLastModified age="93d" />
+</Delete>
+</DefaultRolloverStrategy>
+</Policies>
+</RollingRandomAccessFile>
+</Appenders>
+<Loggers>
+<Root level="DEBUG">
+<AppenderRef ref="Console" level="TRACE" />
+<AppenderRef ref="FileLog" level="TRACE" />
+</Root>
+</Loggers>
+</Configuration>
+```
+
+　コンソールに表示するメッセージの定義は、KKKLDIFConverter.jar ファイル内のリソースファイルとして、
+
+com/KKK/jp/kldap/messages.properties
+
+で行います。
+
+定義内容は、基本設計書「3.2出力インターフェース」「3.2.2.3メッセージ」の内容に従い、以下のように定義します。
+```
+CRIT001=アプリケーションの初期化に失敗しました。システム管理者に連絡してください。
+CRIT002=引数の指定が不正です。引数の指定を見直して再度実行してください。
+CRIT003=起動確認のための一時ファイルの削除が行えませんでした。%sを削除した後に再度実行してください。
+CRIT004=指定したCSVファイルが存在しません。CSVファイルのパスを見直し再度実行してください。
+CRIT005=指定したCSVファイルを読み込めません。アクセス権などを見直し再度実行してください。
+CRIT006=指定したCSVファイルの内容にエラーがあります。内容を見直し再度実行してください。\n%s
+CRIT007=マスタDBへの接続に失敗しました。システム管理者に連絡してください。
+CRIT008=LDIFファイルへの変換に失敗しました。システム管理者に連絡してください。
+CRIT009=起動確認のための一時ファイルの削除が行えませんでした。
+CRIT010=マスタDBの内容にエラーがあります。対象のレコードは処理されません。\n%s
+CRIT999=アプリケーションの処理に失敗しました。システム管理者に連絡してください。
+MAJOR001=プライマリのマスタDBへの接続に失敗しました。セカンダリのマスタDBに接続します。
+MINOR001=二重起動です。実行中のアプリケーションが終了した後に再度実行してください。
+INFO001=処理を開始します。
+INFO002=プライマリのマスタDBに接続しました。
+INFO003=セカンダリのマスタDBに接続しました。
+INFO004=マスタDBから%d件のデータを取得しました。
+INFO005=CSVファイルから%d件のデータを読み込みました。
+INFO006=LDIFファイルへの変換に成功しました。新規登録=%d件、更新=%d件、削除=%d件。
+INFO007=処理を終了します。
+```
+
+DEBUGメッセージは、製造時に以下の条件で障害時に原因調査に有用と思われるメッセージを出力することとします。
+* 設定ファイルの不備の原因となっている箇所
+* 引数の不備の原因となっている箇所
+* ファイル読み込み、通信エラー、発生箇所を特定が必要となる箇所
+* その他、想定しない障害発生時に問題箇所の特定するための情報
+
+```
+DEBUG001=起動パラメータの数が不正です。
+DEBUG002=第2引数が不正です。
+DEBUG003=設定ファイルが読み込みません。
+DEBUG004=起動確認のための一時ファイルの作成が行えませんでした。
+DEBUG005=設定ファイルの読み込みに失敗しました。
+DEBUG006=指定したCSVファイルのヘッダーの書式が異なります。
+DEBUG007=指定したCSVファイルの読み込みに失敗しました。
+DEBUG008=指定したCSVファイルの%d行目の書式が異なります。%s
+DEBUG009=LDIFテンプレートの読み込みに失敗しました。
+DEBUG010=出力ファイルの世代管理の処理に失敗しました。
+DEBUG011=マスタDBの接続に問題があります。
+DEBUG012=マスタDBの検索に問題があります。
+DEBUG013=マスタDBの接続に失敗しました。
+DEBUG014=LDAPから %d件のデータを読み込みました。
+DEBUG015=LDIFファイルの書き込みに失敗しました。
+DEBUG016=LDAPに接続できませんでした。
+DEBUG017=LDAPの検索検索に失敗しました。
+DEBUG018=LDAPから取得したデータに属性がありません。
+DEBUG019=LDAPの検索結果の処理に失敗しました。
+DEBUG020=LDAPに接続しました。
+DEBUG021=LDAPから取得したデータcnの書式に問題があります。
+DEBUG022=入力マスタ検証で問題を検出しました。
+DEBUG023=マスタDBに再接続を試みます。retryCount(%d/%d)
+```
