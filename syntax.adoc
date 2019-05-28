@@ -28,15 +28,15 @@ You have to add `:toc:` to display TOC at the top of the document. (`:toc:` is f
 
 なお章の参照などについては<<cross-ref>>を確認のこと．
 
-
-
 == Section Header/Titles
-= = Document Header
-== == Section (level1)
-=== === Section (level2)
-==== ==== Section (level3)
-===== ===== Section (level4)
-====== ====== Section (level5)
+```
+= Document Header (Document Level Title)
+== Section (level1)
+=== Section (level2)
+==== Section (level3)
+===== Section (level4)
+====== Section (level5)
+```
 (* no section level6)
 
 
@@ -61,7 +61,7 @@ _italic_ +
 注意： ブロック表示の場合はコロン2つ，インライン表示の場合はコロン1つという
 違いがある．
 
-==== ブロック表示 
+==== ブロック表示
 
 .外部URL(1)
 image::http://placehold.it/350x150[alt文字]
@@ -232,7 +232,7 @@ Double Arrow: <= and => +
 
 基本的には，section titleにはIDが自動付与されるらしい．例えば，
 ----
-== Section Title 
+== Section Title
 ----
 というセクションがあるとすれば，このIDは「*_section_title*」となる．
 
@@ -263,7 +263,7 @@ Anchorは +++[[xxxx]]+++ もしくは +++[#xxxx]+++ という記法．
 
 ----
 [[section_1_ref]]
-== ニホンゴのタイトル 
+== ニホンゴのタイトル
 ----
 という風にしておく．
 

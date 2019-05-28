@@ -20,7 +20,15 @@ VSCodeのPreview機能，AtomのPreview, Asciidoctor.js Live Preview，
 例： includeの機能(他adocファイルを取り込む)が，Asciidoctor.js live Previewだと
 ハイパーリンクになってしまう．一方VSCodeのPreviewではちゃんとインクルードされる．
 
-比較的安定感があるのは，Atom + Asciidoctor plugins かもしれない．
+比較的安定感があるのは，Atom + Asciidoctor plugins かもしれない
+と思ったが，Syntaxハイライト機能がAtomの場合しょぼい．途中で力つきて一色だけになってしまう．
+
+Syntaxハイライトという面ではVSCodeが安定．ただしPreviewがしょぼいのでAtomで見たほうがいい．
+
+
+*結局，どれ使っても困る*
+
+
 
 
 ## for Atom
@@ -108,6 +116,8 @@ asciidoctor --backend docbook --out-file - all.adoc | pandoc --from docbook --to
 ```
 
 
-※ --tocを付けないと ToC (目次) が生成されないので注意．
-  --standaloneをつけてもリンク切れ?の警告は生じる．(Word開くときに謎のwarning発生)．
-  これらの回避方法は，不明．
+※ --tocを付けないと ToC (目次) がWord内に生成されないので注意．
+ただしWordファイルのTOCがこわれかけた状態で生成されてしまう．
+警告ダイアログでupdate > YESとしておく必要がある(今後どうなるか不明)．
+
+--standaloneをつけてもリンク切れ?の警告は生じる．
