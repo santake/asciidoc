@@ -1,4 +1,4 @@
-# asciidoc の確認
+# asciidoc の動作確認
 
 markdownとの違いとか確認したいので動作確認
 syntax等についてtest.adocを参照．
@@ -12,21 +12,21 @@ syntax等についてtest.adocを参照．
 https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
 
-
 # Plugin etc
-
-いくつか試すと，VSCodeのPreview機能と，Asciidoctor.js Live Previewの
-見えかたが異なる場合がある．またそれぞれ若干表示機能がpoorだったりする．
+いくつか試す．
+VSCodeのPreview機能，AtomのPreview, Asciidoctor.js Live Preview，
+それぞれ見えかたが若干異なるので，どれをデファクトにしていいか困る．
 
 例： includeの機能(他adocファイルを取り込む)が，Asciidoctor.js live Previewだと
 ハイパーリンクになってしまう．一方VSCodeのPreviewではちゃんとインクルードされる．
 
-安定感のあるのはAtom + Asciidoctor plugins (複数個ある) かもしれない．
+比較的安定感があるのは，Atom + Asciidoctor plugins かもしれない．
 
 
 ## for Atom
 Atom + Asciidoctorという組み合わせが有名らしいが，Atomが重い．
 https://atom.io/users/asciidoctor
+Atom用asciidoctorプラグインは4つくらいあるので，とりあえず全部入りにする．
 
 ## for VS Code
 AsciiDoc: joaompinto.asciidoctor-vscode  (ver.2.7.4 for now)
@@ -42,23 +42,28 @@ for Chrome and Firefox
 GithubがasciidocのPreviewに対応しているというirony．
 
 
+# asciidocのフォーマット変換ツール
 
-# Install asciidoctor
+## asciidoctor
 https://asciidoctor.org/docs/install-asciidoctor-macos/
+
+asciidocに関する各種utilities．
 
 ```
 $ brew install asciidoctor
 ```
 
-## Install Pandoc
+## Pandoc
 Pandoc: https://pandoc.org
+
+Wordなどの他フォーマットに変換する(もしくはWordからadocに変換する)のに使用．
+
 ```
 $ brew install pandoc
 ```
 
 
-
-## Convert Word file to asciidoc file (for test purpose)
+# Convert Word file to asciidoc file (for test purpose)
 
 ```
 $ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=media input.docx > output.adoc
@@ -72,9 +77,9 @@ adocファイルの拡張子も.tiffから.pngに変更しておくと，
 chapter毎にsplit
 
 
+# Convert Asciidoc with other formats
 
-
-## a) adocからHTMLの生成
+## a) adoc to HTML
 
 ```
 $ asciidoctor -D [outputdir] INPUT.adoc --backend html5
@@ -90,7 +95,7 @@ cp -r src/media OUTPUT/.
 これでHTMLとしては動作する．
 
 
-## b) adocからWORDファイル生成
+## b) adoc to docx (word)
 下記参考：
 https://rmoff.net/2018/08/22/converting-from-asciidoc-to-ms-word/
 
