@@ -103,4 +103,6 @@ asciidoctor --backend docbook --out-file - all.adoc | pandoc --from docbook --to
 ```
 
 
-※ ToC (目次) が生成されない...
+※ --tocを付けないと ToC (目次) が生成されないので注意．
+  --standaloneをつけてもリンク切れ?の警告は生じる．(Word開くときに謎のwarning発生)．
+  これらの回避方法は，不明．
