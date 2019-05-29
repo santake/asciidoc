@@ -1,26 +1,28 @@
 
 = 詳細設計仕様書
-:Author: 株式会社おけら開発
-:Email: info@okerakaihatsu.com
-:Date:  2019-05-26
-:Revision:  1.0.0
+:author: 株式会社おけら開発
+:authorinitials: KK
+:email: info@okerakaihatsu.com
+:revnumber: 1.0.0
+:revdate: 05-27-2019
+:revremark: Converted from word file
+:version-label:
 :toc:
-:toclevels: 5
+:toclevels: 4
 :sectnums:
+:sectids:
+
+//https://asciidoctor.org/docs/user-manual/#sections-summary
 
 
-*改版履歴*
-[cols=",,,,,,",]
-|===
-|*版数* |*発行年月日* |*改版内容* |*承認* |*査閲* |*作成* |*備考*
-|0.01 |2018/06/18 |初版 |おけら開発 |おけら開発 |おけら開発 |
-|0.06 |2018/06/20 |おけら開発レビュー反映 |おけら開発 |おけら開発 |おけら開発 |
-|0.10 |2018/06/22 a|
-|===
+// here is 'preamble':
+include::sec_00_preamble.adoc[]
 
 
 == はじめに
 include::sec_01.adoc[]
+
+== 関連文書
 include::sec_02.adoc[]
 
 == システム構成

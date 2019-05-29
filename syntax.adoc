@@ -6,25 +6,27 @@
 :Date:  2019-05-26
 :Revision:  1.0.0
 // they are for Table Of Contents:
-:toc:
+:toc: preable
 :toclevels: 5
 :sectnums:
 
 
 == About document header
-You have to add `:toc:` to display TOC at the top of the document. (`:toc:` is for 'Table of contents'.)
+You have to add `:toc:` to display TOC (table of contents) at the top of the document.
 
-*preamble* will position the toc in the main content area (some as default) but before the preable.
-
+*preable* will position the toc in the main content area (some as default) but before the preable.
 
 
 
 == Paragraph
 
-テストの第1章です．
-改行はここでは聞かない．
-あああ +
-プラス(+)をスペースprefixで付与することで強制改行となる．
+テストの第1章です．改行はここでは聞かない．
+でもここは改行される． +
+ほら!
+
+
+*強制改行は，プラス(+)をスペースprefixで付与する．*
+
 
 なお章の参照などについては<<cross-ref>>を確認のこと．
 
@@ -294,3 +296,34 @@ Anchorを他から参照する場合は，
 
 
 このように<<bookmark-imouto>>
+
+
+== Tableの詳細
+https://asciidoctor.org/docs/user-manual/#tables
+とにかく非常にオプションが多い．
+
+詳細はdocumentを観るとして，sec_03.adocでいくつか試している．
+```
+[caption="表1. " cols="<s,2*^v,>",options="header,footer", frame="topbot", stripes="odd"]
+|===
+|項番 |分類 |利用OSSの名称 |バージョン
+|1 |ログ出力 |Apache Log4J |2.11.0
+|2 |JDBC\|ドライバー |PostgreSQL JDBC Driver |42.2.2
+|3 |入出力ユーティリティ |Apache Commons IO |2.6
+|4 |文字列処理ユーティリティ |Apache Commons Lang |3.7
+|項番 |分類 |利用OSSの名称 |バージョン
+|===
+```
+上記をレンダリングすると，
+
+[caption="表1. " cols="<s,2*^v,>",options="header,footer", frame="topbot", stripes="odd"]
+|===
+|項番 |分類 |利用OSSの名称 |バージョン
+|1 |ログ出力 |Apache Log4J |2.11.0
+|2 |JDBC\|ドライバー |PostgreSQL JDBC Driver |42.2.2
+|3 |入出力ユーティリティ |Apache Commons IO |2.6
+|4 |文字列処理ユーティリティ |Apache Commons Lang |3.7
+|項番 |分類 |利用OSSの名称 |バージョン
+|===
+
+となる．

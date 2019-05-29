@@ -1,0 +1,13 @@
+
+
+// Preamble: Content between the document header and the first section title is called the preamble
+
+*改版履歴*
+
+[cols="1,2,3,1,1,1,1", width="80%"]
+|===
+|*版数* |*発行年月日* |*改版内容* |*承認* |*査閲* |*作成* |*備考*
+|0.01 |2018/06/18 |初版 |おけら開発 |おけら開発 |おけら開発 |
+|0.06 |2018/06/20 |おけら開発レビュー反映 |おけら開発 |おけら開発 |おけら開発 |
+|0.10 |2018/06/22 a|
+|===

@@ -20,13 +20,14 @@ VSCodeのPreview機能，AtomのPreview, Asciidoctor.js Live Preview，
 例： includeの機能(他adocファイルを取り込む)が，Asciidoctor.js live Previewだと
 ハイパーリンクになってしまう．一方VSCodeのPreviewではちゃんとインクルードされる．
 
-比較的安定感があるのは，Atom + Asciidoctor plugins かもしれない
-と思ったが，Syntaxハイライト機能がAtomの場合しょぼい．途中で力つきて一色だけになってしまう．
+比較的安定感があるのは，Atom + Asciidoctor plugins かもしれない… と思ったが，
+Syntaxハイライトが，Atomの場合は，途中で力つきて，一色だけになってしまう場合がある．
+何かがトリガになって一色化している可能性もある．(ただ同ファイルをVSCodeで見ても問題なくハイライトさせている)
 
 Syntaxハイライトという面ではVSCodeが安定．ただしPreviewがしょぼいのでAtomで見たほうがいい．
 
 
-*結局，どれ使っても困る*
+*結局，どれ使っても困るってこと*
 
 
 
@@ -40,10 +41,11 @@ Atom用asciidoctorプラグインは4つくらいあるので，とりあえず�
 AsciiDoc: joaompinto.asciidoctor-vscode  (ver.2.7.4 for now)
 ※ 同じ名称でdepcrecatedのextensionもあるので注意のこと．
 
+
 ## Asciidoctor.js Live Preview
 for Chrome and Firefox
 ※ Chrome用が正しく動いてない????
-※ FirefoxはOK
+※ Firefoxもアップデートがはいってから動作せず
 ※ Safari用はみあたらず
 
 ## Github Preview
@@ -85,6 +87,10 @@ adocファイルの拡張子も.tiffから.pngに変更しておくと，
 chapter毎にsplit
 
 
+
+
+
+
 # Convert Asciidoc with other formats
 
 ## a) adoc to HTML
@@ -94,13 +100,23 @@ $ asciidoctor -D [outputdir] INPUT.adoc --backend html5
 ```
 e.g
 ```
-asciidoctor -D OUTPUT/ all.adoc --backend html5
+asciidoctor -D OUTPUT/ all.adoc --backend html5 --doctype book
 ```
 これだけだとimageへの参照が切れてしまうので，画像フォルダをコピーする：
 ```
 cp -r src/media OUTPUT/.
 ```
 これでHTMLとしては動作する．
+
+
+### CLI options of 'asciidoctor'
+https://asciidoctor.org/docs/user-manual/#cli-options
+
+
+asciidoctor -D OUTPUT/ all.adoc --backend html5 --doctype
+asciidoctor -D OUTPUT/ all.adoc --backend html5 --doctype
+
+
 
 
 ## b) adoc to docx (word)
