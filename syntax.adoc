@@ -154,7 +154,7 @@ Blockの記法：
 ====
 
 .Quote by Underscore (_)
-[quote, これはあんすこで, 'あんすこのくおーと]
+[quote, これはunderscoreで囲んだものです．, 'あんすこのくおーと]
 ____
 ここはそういったもの． +
 ここはそういったもの． +
@@ -192,12 +192,12 @@ public static void main(String... args) {
 ----
 
 
-.Callout (数字の番号)を付与するには`//<x>`とする
+.Callout (数字の番号)を付与
 [source, java]
 ----
-public static void main(String... args) { //<1>
-    System.out.println("Hanage");         //<2>
-}                                         //<3>
+public static void main(String... args) {  //<1>
+    System.out.println("Hanage");          //<2>
+}                                          //<3>
 ----
 <1> method signature
 <2> contents
@@ -207,9 +207,7 @@ public static void main(String... args) { //<1>
 ==== Escape special characters
 タグなどをエスケープさせる場合は，プラス(+)を3つ連続させて囲む．
 
-例：参照リンクの場合「+++<<xxx>>+++」など
-
-
+例：Anchorの「+++[[xxx]]+++」など
 
 
 == Special chars
@@ -229,7 +227,7 @@ Double Arrow: <= and => +
 === 参照元
 * 任意の箇所に+++[[xxx]]+++というタグを用意することで参照元を用意できる．
 * Section(節)の場合は3種類の方法がある
-  ** 節の名前を自動変換したIDを利用する (ただし英数字の文字列のみの場合；日本語はこれ動かない)
+  ** 節の名前を自動変換したID (Anchor) を利用する (ただし英数字の文字列のみの場合；日本語はこれ動かない)
   ** 節の名前をそのままタグとする(日英ともOK)
   ** 独自のタグとする(最初の方法と同じ)
 
@@ -243,60 +241,49 @@ Double Arrow: <= and => +
 === 参照先
 参照先を作る場合は+++<<+++と+++>>+++で囲むタグを用意し，間に参照元のIDを入れる．
 
-例えば上記「section title」を参照する場合は，+++<<+++と +++>>+++で囲む． +
-例：<<_section_title>>
+例えば上記「Section Title」を参照する場合は，そのID(自動生成IDなら_section_title)
+を+++<<+++と +++>>+++とで囲む． +
+例：+++<<_section_title>>+++
 
-ただしSection名をそのままタグで参照させることも可能な模様． +
+ただし，Section名を *そのまま* タグで参照させることも可能な模様． +
 
 例1：<<Cross Reference機能について>>
 
 例2：<<Paragraph>>
 
 
-だとどうなるか不明なので，自分でAnchorを付与するほうがいいかもしれない．
-
-先に宣言してある章「Paragraph」は，+++<<_paragraph>>+++と参照される．+
-
-
 
 
 === Anchorの付与
-Anchorは +++[[xxxx]]+++ もしくは +++[#xxxx]+++ という記法．
-これを使って，Sectionに手動でIDを付与する．
-
-----
+Anchor[[anchor]]は +++[[xxxx]]+++ もしくは +++[#xxxx]+++ という記法．
+これを使って，Sectionに手動でIDを付与する．例えば
+....
 [[section_1_ref]]
 == ニホンゴのタイトル
-----
+....
 という風にしておく．
+
 
 === Anchorへのリンク(参照を作る)
 
 Anchorを他から参照する場合は，
-----
+....
 なお章の参照などについては<<section_1_ref>>を確認のこと．
-----
-などという風に `<<xxx>>` で記載する
+....
+などという風に `\<<xxx>>`で記載する．
+
 こうしておくと章名が表示されて参照できるようになる．
 
 
 
-
-#### FIXME
-
-なお，インラインの場合，以下のようにIDを付与すると
+なお，インラインの場合，以下のようにAnchorを付与すると，
 ----
 けふのうちにとほくへいつてしまふ[[bookmark-imouto]]わたくしのいもうとよ
 みぞれがふつておもてはへんにあかるいのだ
 ----
+それを参照できる．
 
-
-けふのうちにとほくへいつてしまふ[[bookmark-imouto]]わたくしのいもうとよ
-みぞれがふつておもてはへんにあかるいのだ
-
-
-
-このように<<bookmark-imouto>>
+上記の文に\[[anchor]]を付けてあるが，ここへは「<<anchor>>」で戻られる．
 
 
 == Tableの詳細
