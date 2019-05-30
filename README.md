@@ -1,7 +1,8 @@
 # asciidoc の動作確認
 
 markdownとの違いとか確認したいので動作確認
-syntax等についてtest.adocを参照．
+syntax等についてsyntax.adocを参照．
+またファイル分割などはsrc/配下．
 
 ### 使える拡張子
 .ad, .adoc, .asc, .asciidoc
@@ -111,10 +112,6 @@ cp -r src/media OUTPUT/.
 
 ### CLI options of 'asciidoctor'
 https://asciidoctor.org/docs/user-manual/#cli-options
-
-
-asciidoctor -D OUTPUT/ all.adoc --backend html5 --doctype
-asciidoctor -D OUTPUT/ all.adoc --backend html5 --doctype
 
 
 

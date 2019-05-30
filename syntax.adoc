@@ -1,21 +1,37 @@
 = Basic Syntax of Asciidoc File
-// Takeshi S <t-sannomiya@katachistudio.co.jp>
-// v1.0.0, 2019, MAY 26
-:Author:    Takeshi.S
-:Email: t-sannomiya@katachistudio.co.jp
-:Date:  2019-05-26
-:Revision:  1.0.0
+:author: Takeshi.S
+:authorinitials: TS
+:email: t-sannomiya@katachistudio.co.jp
+:revnumber:  1.0.1
+:revdate: 2019-05-31
+:revremark: syntax examples
+:version-label: 1.0.1.0.0
 // they are for Table Of Contents:
-:toc: preable
-:toclevels: 5
-//:toc-title: 目次
+//:toc: preamble
+:toc:
+:toclevels: 3
+:toc-title: 目次
 :sectnums:
+:sectids:
+:nofooter:
+
+
+----
+ここはpreambleというエリアにあたる．
+Atomのpreviewでは，なぜかこのpreambleの記述がないとTOCが表示されないので
+注意．
+----
+
+
 
 
 == About document header
 You have to add `:toc:` to display TOC (table of contents) at the top of the document.
 
 *preable* will position the toc in the main content area (some as default) but before the preable.
+
+Header summaery:
+https://asciidoctor.org/docs/user-manual/#header-summary
 
 
 

@@ -1,16 +1,18 @@
-
 = 詳細設計仕様書
 :author: 株式会社おけら開発
 :authorinitials: KK
 :email: info@okerakaihatsu.com
-:revnumber: 1.0.0
+:revnumber: 1.0.1
 :revdate: 05-27-2019
 :revremark: Converted from word file
 :version-label:
-:toc:
+//:toc:
+:toc: preamble 
 :toclevels: 4
 :sectnums:
 :sectids:
+:nofooter:
+
 
 //https://asciidoctor.org/docs/user-manual/#sections-summary
 
