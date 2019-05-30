@@ -8,6 +8,7 @@
 // they are for Table Of Contents:
 :toc: preable
 :toclevels: 5
+//:toc-title: 目次
 :sectnums:
 
 
@@ -129,15 +130,14 @@ RAM:: Random Access Memories (Daft Punkも)
 |=======================
 
 
-== Block quote的なブロック
-このブロックを利用する場合，以下の注意がある：
-
+== Block / Quote
+Blockの記法：
 * ソースコードは Hyphen (-) or Dot (.) 4回
-* 通常ブロックは Asterisk (*) 4回
+* 通常Blockは Asterisk (*) 4回
 * 「例 example」とするブロックは Equal (=) 4回
+* 'Quote'の場合 underscore (_)を利用 => この場合さらに付加情報もつけられる
 
-
-.Block with Asterisk (*)
+.Block w/ Asterisk (*)
 ****
 ここはそういったもの． +
 ここはそういったもの． +
@@ -145,8 +145,7 @@ RAM:: Random Access Memories (Daft Punkも)
 ここはそういったもの．
 ****
 
-
-.Block with Equal(=)
+.Block w/ Equal(=)
 ====
 ここはそういったもの． +
 ここはそういったもの． +
@@ -154,35 +153,37 @@ RAM:: Random Access Memories (Daft Punkも)
 ここはそういったもの．
 ====
 
-.another block with equal(=)
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= Title of Document
-Doc Writer
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-
-====
+.Quote by Underscore (_)
+[quote, これはあんすこで, 'あんすこのくおーと]
+____
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの． +
+ここはそういったもの．
+____
 
 
-// --
-
-== Source code
+== Sourceコードの表示(引用)
 
 === inline
-クラス「`java.lang.String`」を使用する．
-もしくはクラス「``java.lang.Integer``」を使用する．
+インラインはGrave accent (+++`+++)を1回もしくは2回使用．
++++`java.lang.String`+++ とか +++``java.lang.Integer``+++ とすると， +
+
+`java.lang.String` あるいは``java.lang.Integer``という風に表示される．
+
 
 === Block
+* dot(.) * 4 ... この場合Syntax highlightが_ない_
+* hyphen(-) * 4 ... コードに応じたhighlightが_*ある*_ (言語の種類を指定する)
 
-.Hyphen(4つ)で囲む．あるいはdot(4つ)でも可能
+.dot(4つ)
+....
+public static void main(String... args) {
+    System.out.println("Hanage");
+}
+....
+
+.Hyphen(4つ)
 [source, java]
 ----
 public static void main(String... args) {
@@ -303,7 +304,7 @@ https://asciidoctor.org/docs/user-manual/#tables
 とにかく非常にオプションが多い．
 
 詳細はdocumentを観るとして，sec_03.adocでいくつか試している．
-```
+````
 [caption="表1. " cols="<s,2*^v,>",options="header,footer", frame="topbot", stripes="odd"]
 |===
 |項番 |分類 |利用OSSの名称 |バージョン
@@ -313,7 +314,8 @@ https://asciidoctor.org/docs/user-manual/#tables
 |4 |文字列処理ユーティリティ |Apache Commons Lang |3.7
 |項番 |分類 |利用OSSの名称 |バージョン
 |===
-```
+````
+
 上記をレンダリングすると，
 
 [caption="表1. " cols="<s,2*^v,>",options="header,footer", frame="topbot", stripes="odd"]
