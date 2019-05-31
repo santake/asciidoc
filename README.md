@@ -109,7 +109,6 @@ cp -r src/media OUTPUT/.
 ```
 これでHTMLとしては動作する．
 
-
 ### CLI options of 'asciidoctor'
 https://asciidoctor.org/docs/user-manual/#cli-options
 
@@ -134,3 +133,29 @@ asciidoctor --backend docbook --out-file - all.adoc | pandoc --from docbook --to
 警告ダイアログでupdate > YESとしておく必要がある(今後どうなるか不明)．
 
 --standaloneをつけてもリンク切れ?の警告は生じる．
+
+
+
+
+## PlantUMLを利用する
+
+まずasciidoctor-diagramを入れる．
+
+```
+$ sudo gem install asciidoctor-diagram
+```
+
+また今回PlantUMLを利用するので，Graphvizをインストールする．
+
+```
+$ brew install graphviz
+```
+
+実行前に'dot'へのパスを$GRAPHVIZ_DOTとして宣言しておいて，
+```
+export GRAPHVIZ_DOT=/usr/local/bin/dot
+```
+でadoc側にplantUMLの書式の図を記載して，以下を実行する．
+```
+asciidoctor -r asciidoctor-diagram -D OUTPUT/ all.adoc --backend html5 --doctype book
+```
