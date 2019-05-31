@@ -7,12 +7,14 @@
 :revremark: Converted from word file
 :version-label:
 //:toc:
-:toc: preamble 
+:toc: preamble
 :toclevels: 4
 :sectnums:
 :sectids:
 :nofooter:
 
+// for PlantUML&Graphviz
+//:imagesoutdir: images
 
 //https://asciidoctor.org/docs/user-manual/#sections-summary
 

@@ -168,4 +168,15 @@ asciidoctor -r asciidoctor-diagram -D OUTPUT/ all.adoc --backend html5 --doctype
 asciidoctor -r asciidoctor-diagram --backend docbook --out-file - all.adoc | pandoc --from docbook --to docx --toc --standalone --output OUTPUT/out.docx
 ```
 
-いずれもpngファイルが変なところに吐きだされてしまうので汚ない．
+
+#### 問題
+いずれもpngファイルが実行したdirectory直下に生成されおかしな状況となる．
+
+以下のメタデータをheaderに付与すると，images/というディレクトリができるが，
+こうすると，adocファイルの存在する位置からimages/を作成してしまうので，
+(上記例でいくと)OUTPUT/以下のHTMLとは別の位置にimages/ができてしまい変な上体になる．
+
+```
+// for PlantUML&Graphviz
+:imagesoutdir: images
+```
