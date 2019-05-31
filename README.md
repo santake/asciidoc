@@ -156,6 +156,16 @@ $ brew install graphviz
 export GRAPHVIZ_DOT=/usr/local/bin/dot
 ```
 でadoc側にplantUMLの書式の図を記載して，以下を実行する．
+
+### HTML:
 ```
 asciidoctor -r asciidoctor-diagram -D OUTPUT/ all.adoc --backend html5 --doctype book
 ```
+
+
+### WORD:
+```
+asciidoctor -r asciidoctor-diagram --backend docbook --out-file - all.adoc | pandoc --from docbook --to docx --toc --standalone --output OUTPUT/out.docx
+```
+
+いずれもpngファイルが変なところに吐きだされてしまうので汚ない．
