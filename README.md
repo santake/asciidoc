@@ -170,13 +170,16 @@ asciidoctor -r asciidoctor-diagram --backend docbook --out-file - all.adoc | pan
 
 
 #### 問題
-いずれもpngファイルが実行したdirectory直下に生成されおかしな状況となる．
+pngファイルの生成先が変．
 
-以下のメタデータをheaderに付与すると，images/というディレクトリができるが，
-こうすると，adocファイルの存在する位置からimages/を作成してしまうので，
-(上記例でいくと)OUTPUT/以下のHTMLとは別の位置にimages/ができてしまい変な上体になる．
+生成されるHTMLファイルからは，PNGファイルがHTMLと同じ高さにある，という前提となってしまっている．
 
+またadocファイルのHeaderに以下の属性を付与すると，画像生成ディレクトリを指定(下記ではimages/)
+できるが，あくまでadocファイルの存在する位置からの相対位置．
 ```
 // for PlantUML&Graphviz
 :imagesoutdir: images
 ```
+
+しかも，結局「HTML生成時はimgタグがHTMLと同じ高さを参照している」ので，HTMLを生成した
+あと画像ファイルをhtmlファイルのあるdirにコピーしなきゃならない．
